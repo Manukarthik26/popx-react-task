@@ -1,0 +1,148 @@
+.profile-container {
+  height: 100%;
+  background-color: #f8f9fc; /* Light background for contrast */
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 16px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #6c5ce7; /* Purple border */
+}
+.tony26 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;   /* 🔑 IMPORTANT */
+}
+
+
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin: 8px 0 4px;
+}
+
+.email {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 24px;
+}
+
+.bio,
+.extra-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 16px 0;
+}
+
+.separator {
+  border: none;
+  border-top: 1px dotted #ccc;
+  margin: 24px 0;
+}
+
+/* .camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #6c5ce7;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  box-sizing: border-box;
+  cursor: pointer;
+} */
+ .camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #6c5ce7;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  cursor: pointer;
+  z-index: 999;           /* 🔑 IMPORTANT */
+}
+
+
+.camera-icon:hover {
+  background-color: #5a4bdc;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(108, 92, 231, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s ease-out;
+}
+
+.hint-text {
+  position: absolute;
+  bottom: -28px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #2d2d2d;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+

@@ -1,0 +1,66 @@
+.landing-container {
+  height: 100%;               /* Full height of the mobile frame */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;   /* White background as in your description */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 320px;           /* Slightly narrower for better mobile feel */
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 48px;
+  line-height: 1.5;
+}
+
+.btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;        /* Modern rounded corners */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.primary {
+  background-color: #6c5ce7;  /* Vibrant purple */
+  color: white;
+}
+
+.primary:hover {
+  background-color: #5a4bc7;
+  transform: translateY(-2px);
+}
+
+.secondary {
+  background-color: #d1c4ff;  /* Light purple */
+  color: #6c5ce7;
+  font-weight: 500;
+}
+
+.secondary span {
+  font-weight: 700;           /* Make "Login" bold */
+}
+
+.secondary:hover {
+  background-color: #c5b3ff;
+}
