@@ -1,6 +1,6 @@
 .profile-container {
   height: 100%;
-  background-color: #f8f9fc; /* Light background for contrast */
+  background-color: #f8f9fc;
   padding: 24px;
   box-sizing: border-box;
   overflow-y: auto;
@@ -34,17 +34,15 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #6c5ce7; /* Purple border */
+  border: 3px solid #6c5ce7;
 }
 .tony26 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  pointer-events: none;   /* 🔑 IMPORTANT */
+  pointer-events: none;
 }
-
-
 
 .name {
   font-size: 20px;
@@ -73,22 +71,7 @@
   margin: 24px 0;
 }
 
-/* .camera-icon {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: #6c5ce7;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid white;
-  box-sizing: border-box;
-  cursor: pointer;
-} */
- .camera-icon {
+.camera-icon {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -101,9 +84,8 @@
   justify-content: center;
   border: 3px solid white;
   cursor: pointer;
-  z-index: 999;           /* 🔑 IMPORTANT */
+  z-index: 999;
 }
-
 
 .camera-icon:hover {
   background-color: #5a4bdc;
@@ -145,4 +127,3 @@
     opacity: 1;
   }
 }
-

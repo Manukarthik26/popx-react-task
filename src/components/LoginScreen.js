@@ -45,24 +45,20 @@ const LoginScreen = () => {
   };
 
   const handleSubmit = () => {
-    // First: check format validation
     const isFormatValid = validateForm();
 
     if (!isFormatValid) {
-      return; // stop here — show field errors
+      return;
     }
 
-    // Now check if credentials match saved signup data
     const savedUser = JSON.parse(localStorage.getItem("userProfile") || "{}");
 
     if (
       savedUser.email === formData.email.trim() &&
       savedUser.password === formData.password
     ) {
-      // Success → navigate
       window.location.href = "/profile";
     } else {
-      // Wrong credentials → show general error
       setErrors((prev) => ({
         ...prev,
         general: "Invalid email or password",
@@ -138,7 +134,6 @@ const LoginScreen = () => {
           Login
         </button>
 
-        {/* General error message for wrong credentials */}
         {errors.general && (
           <p className="error general-error">{errors.general}</p>
         )}

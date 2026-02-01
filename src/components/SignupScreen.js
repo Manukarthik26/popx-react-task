@@ -1,43 +1,42 @@
-import React, { useState } from 'react';
-import './SignupScreen.css';
+import React, { useState } from "react";
+import "./SignupScreen.css";
 
 const SignupScreen = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    phone: '',
-    email: '',
-    password: '',
-    company: '',
+    fullName: "",
+    phone: "",
+    email: "",
+    password: "",
+    company: "",
     isAgency: true,
   });
 
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
-    const { name, value, type, } = e.target;
+    const { name, value, type } = e.target;
 
-    if (type === 'radio') {
-      setFormData((prev) => ({ ...prev, isAgency: value === 'yes' }));
+    if (type === "radio") {
+      setFormData((prev) => ({ ...prev, isAgency: value === "yes" }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
 
- // Clear error when user starts typing again
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
-
-
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full Name is required';
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Invalid email format';
-    if (!formData.password.trim()) newErrors.password = 'Password is required';
-    else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
+    if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Invalid email format";
+    if (!formData.password.trim()) newErrors.password = "Password is required";
+    else if (formData.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -45,24 +44,17 @@ const SignupScreen = () => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-            // Save data to localStorage so Profile can read it
-      localStorage.setItem('userProfile', JSON.stringify(formData));
+      localStorage.setItem("userProfile", JSON.stringify(formData));
 
-      // Simulate success → go to profile
-      window.location.href = '/profile';
-      // Or better: use useNavigate from react-router-dom
-      // const navigate = useNavigate();
-      // navigate('/profile');
+      window.location.href = "/profile";
     }
   };
 
-   // Simple check: button disabled if any required field is empty
   const isFormValid =
     formData.fullName.trim() &&
     formData.phone.trim() &&
     formData.email.trim() &&
     formData.password.trim().length >= 6;
-
 
   return (
     <div className="signup-container">
@@ -96,7 +88,7 @@ const SignupScreen = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+91 9876543210"  // better realistic placeholder
+            placeholder="+91 9876543210"
             className="input-field"
           />
           {errors.phone && <p className="error">{errors.phone}</p>}
@@ -156,7 +148,9 @@ const SignupScreen = () => {
                 checked={formData.isAgency}
                 onChange={handleChange}
               />
-              <span className={formData.isAgency ? 'radio-selected' : ''}>Yes</span>
+              <span className={formData.isAgency ? "radio-selected" : ""}>
+                Yes
+              </span>
             </label>
 
             <label className="radio-label">
@@ -167,21 +161,17 @@ const SignupScreen = () => {
                 checked={!formData.isAgency}
                 onChange={handleChange}
               />
-              <span className={!formData.isAgency ? 'radio-selected' : ''}>No</span>
+              <span className={!formData.isAgency ? "radio-selected" : ""}>
+                No
+              </span>
             </label>
           </div>
           {/* You can add error if you want to enforce selection */}
           {/* {errors.isAgency && <p className="error">{errors.isAgency}</p>} */}
         </div>
 
-        {/* <button 
-          className="btn create-btn"
-          onClick={handleSubmit}
-        >
-          Create Account
-        </button> */}
-              <button 
-          className={`btn create-btn ${!isFormValid ? 'disabled' : ''}`}
+        <button
+          className={`btn create-btn ${!isFormValid ? "disabled" : ""}`}
           onClick={handleSubmit}
           disabled={!isFormValid}
         >

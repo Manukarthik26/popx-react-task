@@ -1,16 +1,16 @@
 .landing-container {
-  height: 100%;               /* Full height of the mobile frame */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;   /* White background as in your description */
+  background-color: #ffffff;
   padding: 0 20px;
   box-sizing: border-box;
 }
 
 .content-wrapper {
   width: 100%;
-  max-width: 320px;           /* Slightly narrower for better mobile feel */
+  max-width: 320px;
   text-align: center;
 }
 
@@ -35,14 +35,14 @@
   font-size: 16px;
   font-weight: 600;
   border: none;
-  border-radius: 12px;        /* Modern rounded corners */
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   margin-bottom: 16px;
 }
 
 .primary {
-  background-color: #6c5ce7;  /* Vibrant purple */
+  background-color: #6c5ce7;
   color: white;
 }
 
@@ -52,13 +52,13 @@
 }
 
 .secondary {
-  background-color: #d1c4ff;  /* Light purple */
+  background-color: #d1c4ff;
   color: #6c5ce7;
   font-weight: 500;
 }
 
 .secondary span {
-  font-weight: 700;           /* Make "Login" bold */
+  font-weight: 700;
 }
 
 .secondary:hover {

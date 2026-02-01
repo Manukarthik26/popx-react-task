@@ -1,75 +1,67 @@
-import React, { useRef, useState } from 'react';
-import './ProfileScreen.css';
+import React, { useRef, useState } from "react";
+import "./ProfileScreen.css";
 import tony26 from "../assets/tony26.jpg";
 
 const ProfileScreen = () => {
-  // Load data saved from signup
-  const userData = JSON.parse(localStorage.getItem('userProfile') || '{}');
+  const userData = JSON.parse(localStorage.getItem("userProfile") || "{}");
 
-  const displayName = userData.fullName || 'Marry Doe';
-  const displayEmail = userData.email || 'Marry@Gmail.Com';
+  const displayName = userData.fullName || "Marry Doe";
+  const displayEmail = userData.email || "Marry@Gmail.Com";
 
   const fileInputRef = useRef(null);
   const [avatar, setAvatar] = useState(
-    localStorage.getItem("profileImage") || tony26
+    localStorage.getItem("profileImage") || tony26,
   );
   const [animateHint, setAnimateHint] = useState(false);
-  // const [showWave, setShowWave] = useState(false);
 
-React.useEffect(() => {
-  let interval;
+  React.useEffect(() => {
+    let interval;
 
-  if (avatar === tony26) {
-    // No profile image → always animate
-    setAnimateHint(true);
-  } else {
-    // Profile image exists → animate every 5 seconds
-    setAnimateHint(true);
-
-    const stopTimer = setTimeout(() => {
-      setAnimateHint(false);
-    }, 1500);
-
-    interval = setInterval(() => {
+    if (avatar === tony26) {
       setAnimateHint(true);
-      setTimeout(() => setAnimateHint(false), 1500);
+    } else {
+      setAnimateHint(true);
+
+      const stopTimer = setTimeout(() => {
+        setAnimateHint(false);
+      }, 1500);
+
+      interval = setInterval(() => {
+        setAnimateHint(true);
+        setTimeout(() => setAnimateHint(false), 1500);
+      }, 5000);
+
+      return () => {
+        clearInterval(interval);
+        clearTimeout(stopTimer);
+      };
+    }
+  }, [avatar]);
+
+  const [showWave, setShowWave] = useState(false);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setShowWave(true);
+
+      setTimeout(() => {
+        setShowWave(false);
+      }, 1500);
     }, 5000);
 
-    return () => {
-      clearInterval(interval);
-      clearTimeout(stopTimer);
-    };
-  }
-}, [avatar]);
+    return () => clearInterval(interval);
+  }, []);
 
-const [showWave, setShowWave] = useState(false);
-React.useEffect(() => {
-  const interval = setInterval(() => {
-    setShowWave(true);
+  const handleCameraClick = () => {
+    console.log("Camera icon clicked");
+    fileInputRef.current.click();
+  };
+  // anime
+  const [showHint, setShowHint] = useState(true);
 
-    setTimeout(() => {
-      setShowWave(false);
-    }, 1500); // duration of wave animation
-  }, 5000); // every 5 seconds
-
-  return () => clearInterval(interval);
-}, []);
-
-
-
-const handleCameraClick = () => {
-  console.log("Camera icon clicked");
-  fileInputRef.current.click();
-};
-// anime
-const [showHint, setShowHint] = useState(true);
-
-React.useEffect(() => {
-  const timer = setTimeout(() => setShowHint(false), 4000);
-  return () => clearTimeout(timer);
-}, []);
-
-
+  React.useEffect(() => {
+    const timer = setTimeout(() => setShowHint(false), 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -86,42 +78,39 @@ React.useEffect(() => {
 
       <div className="profile-card">
         <div className="avatar-wrapper">
-   
-          <img
-  src={avatar}
-  alt={displayName}
-  className="tony26"
-/>
-     
-          <div className={`camera-icon ${showWave ? "pulse" : ""}`} onClick={handleCameraClick}>
+          <img src={avatar} alt={displayName} className="tony26" />
 
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 17a5 5 0 100-10 5 5 0 000 10z"
-      stroke="white"
-      strokeWidth="2"
-    />
-    <path
-      d="M20 7h-3.2l-1.6-2h-6.4L7.2 7H4a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"
-      stroke="white"
-      strokeWidth="2"
-    />
-  </svg>
-  {showHint && <span className="hint-text">Change photo</span>}
-    {animateHint && (
-    <span className="hint-text">
-      {avatar === tony26 ? "Upload your photo" : "Change photo"}
-    </span>
-  )}
-</div>
+          <div
+            className={`camera-icon ${showWave ? "pulse" : ""}`}
+            onClick={handleCameraClick}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 17a5 5 0 100-10 5 5 0 000 10z"
+                stroke="white"
+                strokeWidth="2"
+              />
+              <path
+                d="M20 7h-3.2l-1.6-2h-6.4L7.2 7H4a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"
+                stroke="white"
+                strokeWidth="2"
+              />
+            </svg>
+            {showHint && <span className="hint-text">Change photo</span>}
+            {animateHint && (
+              <span className="hint-text">
+                {avatar === tony26 ? "Upload your photo" : "Change photo"}
+              </span>
+            )}
+          </div>
 
-{/* Hidden input */}
+          {/* Hidden input */}
           <input
             type="file"
             accept="image/*"
@@ -129,7 +118,6 @@ React.useEffect(() => {
             onChange={handleImageChange}
             style={{ display: "none" }}
           />
-
         </div>
 
         <h2 className="name">{displayName}</h2>
@@ -145,8 +133,8 @@ React.useEffect(() => {
 
         <p className="extra-text">
           {/* You can show more data here if you want */}
-          Company: {userData.company || 'Not provided'} <br />
-          Agency: {userData.isAgency ? 'Yes' : 'No'}
+          Company: {userData.company || "Not provided"} <br />
+          Agency: {userData.isAgency ? "Yes" : "No"}
         </p>
 
         <hr className="separator" />
