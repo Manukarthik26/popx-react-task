@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './LoginScreen.css';
+import React, { useState } from "react";
+import "./LoginScreen.css";
 
 const LoginScreen = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +16,7 @@ const LoginScreen = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -29,15 +29,15 @@ const LoginScreen = () => {
     const newErrors = {};
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = "Please enter a valid email";
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = 'Password is required';
+      newErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+      newErrors.password = "Password must be at least 6 characters";
     }
 
     setErrors(newErrors);
@@ -53,19 +53,19 @@ const LoginScreen = () => {
     }
 
     // Now check if credentials match saved signup data
-    const savedUser = JSON.parse(localStorage.getItem('userProfile') || '{}');
+    const savedUser = JSON.parse(localStorage.getItem("userProfile") || "{}");
 
     if (
       savedUser.email === formData.email.trim() &&
       savedUser.password === formData.password
     ) {
       // Success → navigate
-      window.location.href = '/profile';
+      window.location.href = "/profile";
     } else {
       // Wrong credentials → show general error
       setErrors((prev) => ({
         ...prev,
-        general: 'Invalid email or password',
+        general: "Invalid email or password",
       }));
     }
   };
@@ -109,7 +109,7 @@ const LoginScreen = () => {
           <label className="label">Password</label>
           <div className="password-wrapper">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -122,7 +122,7 @@ const LoginScreen = () => {
               className="toggle-btn"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? 'Hide' : 'Show'}
+              {showPassword ? "Hide" : "Show"}
             </button>
           </div>
           {touched.password && errors.password && (
@@ -131,7 +131,7 @@ const LoginScreen = () => {
         </div>
 
         <button
-          className={`btn login-btn ${isFormValid ? 'valid' : 'disabled'}`}
+          className={`btn login-btn ${isFormValid ? "valid" : "disabled"}`}
           onClick={handleSubmit}
           disabled={!isFormValid}
         >

@@ -12,10 +12,8 @@ const SignupScreen = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState({});
-
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, } = e.target;
 
     if (type === 'radio') {
       setFormData((prev) => ({ ...prev, isAgency: value === 'yes' }));
@@ -29,10 +27,7 @@ const SignupScreen = () => {
     }
   };
 
-  const handleBlur = (e) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
+
 
   const validateForm = () => {
     const newErrors = {};
