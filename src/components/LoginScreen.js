@@ -83,7 +83,6 @@ const LoginScreen = () => {
           consectetur adipiscing elit,
         </p>
 
-        {/* Email */}
         <div className="form-group">
           <label className="label">Email Address</label>
           <input
@@ -100,7 +99,6 @@ const LoginScreen = () => {
           )}
         </div>
 
-        {/* Password with toggle */}
         <div className="form-group password-group">
           <label className="label">Password</label>
           <div className="password-wrapper">

@@ -7,7 +7,7 @@
 
 .header {
   background-color: #e0f7fa;
-  padding: 48px 24px 28px;   /* more top space, consistent sides */
+  padding: 48px 24px 28px;
   text-align: left;
 }
 
@@ -21,14 +21,14 @@
 
 .content-wrapper {
   flex: 1;
-  padding: 0 24px 24px;      /* consistent left/right + bottom space */
-  max-width: 360px;          /* slightly wider but safe in 375px frame */
-  margin: 0 auto;            /* center the form content horizontally */
+  padding: 0 24px 24px;
+  max-width: 360px;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
 .form-group {
-  margin-bottom: 24px;       /* more breathing room between fields */
+  margin-bottom: 24px;
 }
 
 .label {
@@ -47,7 +47,7 @@
   border-radius: 10px;
   background-color: #fafafa;
   outline: none;
-  box-sizing: border-box;    /* important: prevents overflow */
+  box-sizing: border-box;
 }
 
 .input-field:focus {
@@ -61,7 +61,7 @@
 
 .radio-options {
   display: flex;
-  gap: 48px;                 /* more space between Yes/No */
+  gap: 48px;
   margin-top: 8px;
 }
 
@@ -104,15 +104,14 @@
 }
 
 .error {
-  color: #e74c3c;           /* red for errors */
+  color: #e74c3c;
   font-size: 12px;
   margin-top: 4px;
   margin-bottom: 0;
 }
 
 .btn.disabled {
-  background-color: #b0a8e0;     /* lighter purple/grayed out */
-  cursor: not-allowed;
+  background-color: #b0a8e0;
   opacity: 0.7;
 }
 
@@ -137,7 +136,6 @@
   animation: pulse 1.5s ease-out infinite;
 }
 
-/* Tooltip */
 .hint-text {
   position: absolute;
   bottom: -28px;
