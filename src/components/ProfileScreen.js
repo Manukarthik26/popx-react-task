@@ -55,7 +55,7 @@ const ProfileScreen = () => {
     console.log("Camera icon clicked");
     fileInputRef.current.click();
   };
-  // anime
+
   const [showHint, setShowHint] = useState(true);
 
   React.useEffect(() => {
@@ -110,7 +110,6 @@ const ProfileScreen = () => {
             )}
           </div>
 
-          {/* Hidden input */}
           <input
             type="file"
             accept="image/*"
@@ -132,7 +131,6 @@ const ProfileScreen = () => {
         <hr className="separator" />
 
         <p className="extra-text">
-          {/* You can show more data here if you want */}
           Company: {userData.company || "Not provided"} <br />
           Agency: {userData.isAgency ? "Yes" : "No"}
         </p>

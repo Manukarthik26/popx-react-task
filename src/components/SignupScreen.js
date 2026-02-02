@@ -66,7 +66,6 @@ const SignupScreen = () => {
       </div>
 
       <div className="content-wrapper">
-        {/* Full Name */}
         <div className="form-group">
           <label className="label required">Full Name*</label>
           <input
@@ -80,7 +79,6 @@ const SignupScreen = () => {
           {errors.fullName && <p className="error">{errors.fullName}</p>}
         </div>
 
-        {/* Phone number */}
         <div className="form-group">
           <label className="label required">Phone number*</label>
           <input
@@ -94,7 +92,6 @@ const SignupScreen = () => {
           {errors.phone && <p className="error">{errors.phone}</p>}
         </div>
 
-        {/* Email address */}
         <div className="form-group">
           <label className="label required">Email address*</label>
           <input
@@ -108,7 +105,6 @@ const SignupScreen = () => {
           {errors.email && <p className="error">{errors.email}</p>}
         </div>
 
-        {/* Password */}
         <div className="form-group">
           <label className="label required">Password *</label>
           <input
@@ -122,7 +118,6 @@ const SignupScreen = () => {
           {errors.password && <p className="error">{errors.password}</p>}
         </div>
 
-        {/* Company name (optional) */}
         <div className="form-group">
           <label className="label">Company name</label>
           <input
@@ -133,10 +128,8 @@ const SignupScreen = () => {
             placeholder="Enter company name (optional)"
             className="input-field"
           />
-          {/* No error for optional field */}
         </div>
 
-        {/* Are you an Agency? */}
         <div className="form-group radio-group">
           <label className="label required">Are you an Agency?*</label>
           <div className="radio-options">
@@ -166,8 +159,6 @@ const SignupScreen = () => {
               </span>
             </label>
           </div>
-          {/* You can add error if you want to enforce selection */}
-          {/* {errors.isAgency && <p className="error">{errors.isAgency}</p>} */}
         </div>
 
         <button
